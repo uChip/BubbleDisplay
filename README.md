@@ -1,6 +1,6 @@
 # hp Bubble Display Controller  
 
-<img src="https://raw2.github.com/uChip/BubbleDisplay/master/MPHS_top.png" alt="Bubble Display Controller front side" height="270" width="200">___<img src="https://raw2.github.com/uChip/BubbleDisplay/master/MPHS_bottom.png" alt="Bubble Display Controller back side" height="270" width="200">  
+<img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_front.png" alt="Bubble Display Controller front side" height="270" width="200">___<img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_back.png" alt="Bubble Display Controller back side" height="270" width="200">  
 
 This is the beginning of a board and firmware project supporting hp's 4 digit 7 segment LED bubble display, QDSP-6064, available (soon) from [SparkFun](https://www.sparkfun.com/products/12710).  The project is intended to enable a pair of displays to be easily connected over an I2C bus to a microcontroller (e.g. Arduino).  The board is also an example circuit of how to get reasonable brightness from these small displays.  By having a separate microcontroller driving the display, the burden (I/O pins, code space & CPU cycles) on the main application microcontroller is reduced.
 
