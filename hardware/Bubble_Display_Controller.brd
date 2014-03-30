@@ -636,23 +636,23 @@ Please make sure your boards conform to these design rules.</description>
 <element name="DISPLAY1" library="SparkFun-Displays" package="DIL12" value="hp" x="26.67" y="29.21" rot="MR0"/>
 <element name="DISPLAY2" library="SparkFun-Displays" package="DIL12" value="hp" x="11.43" y="29.21" rot="MR0"/>
 <element name="Q1" library="SparkFun-DiscreteSemi" package="SOT23-3" value="BSS84" x="33.02" y="39.37" rot="R180"/>
-<element name="R1" library="SparkFun-Resistors" package="0805" value="180" x="33.02" y="35.56"/>
+<element name="R1" library="SparkFun-Resistors" package="0805" value="75" x="33.02" y="35.56"/>
 <element name="Q2" library="SparkFun-DiscreteSemi" package="SOT23-3" value="BSS84" x="16.51" y="39.37" rot="R180"/>
-<element name="R2" library="SparkFun-Resistors" package="0805" value="180" x="15.24" y="35.56"/>
+<element name="R2" library="SparkFun-Resistors" package="0805" value="75" x="15.24" y="35.56"/>
 <element name="Q3" library="SparkFun-DiscreteSemi" package="SOT23-3" value="BSS84" x="30.48" y="19.05"/>
-<element name="R3" library="SparkFun-Resistors" package="0805" value="180" x="30.48" y="22.86"/>
+<element name="R3" library="SparkFun-Resistors" package="0805" value="75" x="30.48" y="22.86"/>
 <element name="Q4" library="SparkFun-DiscreteSemi" package="SOT23-3" value="BSS84" x="22.86" y="39.37" rot="R180"/>
-<element name="R4" library="SparkFun-Resistors" package="0805" value="180" x="22.86" y="35.56"/>
+<element name="R4" library="SparkFun-Resistors" package="0805" value="75" x="22.86" y="35.56"/>
 <element name="Q5" library="SparkFun-DiscreteSemi" package="SOT23-3" value="BSS84" x="15.24" y="19.05"/>
-<element name="R5" library="SparkFun-Resistors" package="0805" value="180" x="15.24" y="22.86"/>
+<element name="R5" library="SparkFun-Resistors" package="0805" value="75" x="15.24" y="22.86"/>
 <element name="Q6" library="SparkFun-DiscreteSemi" package="SOT23-3" value="BSS84" x="8.89" y="39.37" rot="R180"/>
-<element name="R6" library="SparkFun-Resistors" package="0805" value="180" x="10.16" y="35.56" rot="R180"/>
+<element name="R6" library="SparkFun-Resistors" package="0805" value="75" x="10.16" y="35.56" rot="R180"/>
 <element name="Q7" library="SparkFun-DiscreteSemi" package="SOT23-3" value="BSS84" x="5.08" y="39.37" rot="R180"/>
-<element name="R7" library="SparkFun-Resistors" package="0805" value="180" x="5.08" y="35.56"/>
+<element name="R7" library="SparkFun-Resistors" package="0805" value="75" x="5.08" y="35.56"/>
 <element name="Q8" library="SparkFun-DiscreteSemi" package="SOT23-3" value="BSS84" x="7.62" y="19.05"/>
-<element name="R8" library="SparkFun-Resistors" package="0805" value="180" x="7.62" y="22.86"/>
-<element name="C3" library="ChipsParts" package="0805-POL" value="CAP_POL0805" x="5.08" y="6.985" rot="R270"/>
-<element name="C1" library="SparkFun-Capacitors" package="0805" value="0.1u" x="16.51" y="1.905" rot="R180"/>
+<element name="R8" library="SparkFun-Resistors" package="0805" value="75" x="7.62" y="22.86"/>
+<element name="C3" library="ChipsParts" package="0805-POL" value="10uF" x="5.08" y="6.985" rot="R270"/>
+<element name="C1" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="16.51" y="1.905" rot="R180"/>
 <element name="J1" library="SparkFun" package="2X3" value="ICSP" x="36.195" y="3.175" rot="R90"/>
 <element name="C5" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="20.955" y="1.905"/>
 <element name="R9" library="SparkFun-Resistors" package="0805" value="1k" x="13.335" y="5.715" rot="R90"/>
@@ -662,28 +662,28 @@ Please make sure your boards conform to these design rules.</description>
 <element name="U4" library="SparkFun" package="TQFP32-08" value="ATMEGA328" x="19.685" y="8.255" rot="R270"/>
 <element name="Y1" library="SparkFun-FreqCtrl" package="RESONATOR-SMD" value="16MHz" x="16.51" y="15.24" rot="R180"/>
 <element name="JP1" library="SparkFun-Connectors" package="1X04" value="I2C" x="1.905" y="2.54"/>
-<element name="Q9" library="SparkFun-DiscreteSemi" package="SOT23" value="BSS123" x="34.29" y="21.59">
+<element name="Q9" library="SparkFun-DiscreteSemi" package="SOT23" value="IRFML8244" x="34.29" y="21.59">
 <attribute name="PROD_ID" value="TRANS-08345" x="69.85" y="-16.51" size="1.778" layer="27" display="off"/>
 </element>
-<element name="Q10" library="SparkFun-DiscreteSemi" package="SOT23" value="BSS123" x="27.94" y="38.1" rot="R180">
+<element name="Q10" library="SparkFun-DiscreteSemi" package="SOT23" value="IRFML8244" x="27.94" y="38.1" rot="R180">
 <attribute name="PROD_ID" value="TRANS-08345" x="-11.43" y="76.2" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="Q11" library="SparkFun-DiscreteSemi" package="SOT23" value="BSS123" x="26.67" y="21.59">
+<element name="Q11" library="SparkFun-DiscreteSemi" package="SOT23" value="IRFML8244" x="26.67" y="21.59">
 <attribute name="PROD_ID" value="TRANS-08345" x="69.85" y="-16.51" size="1.778" layer="27" display="off"/>
 </element>
-<element name="Q12" library="SparkFun-DiscreteSemi" package="SOT23" value="BSS123" x="22.86" y="21.59">
+<element name="Q12" library="SparkFun-DiscreteSemi" package="SOT23" value="IRFML8244" x="22.86" y="21.59">
 <attribute name="PROD_ID" value="TRANS-08345" x="69.85" y="-16.51" size="1.778" layer="27" display="off"/>
 </element>
-<element name="Q13" library="SparkFun-DiscreteSemi" package="SOT23" value="BSS123" x="3.81" y="21.59">
+<element name="Q13" library="SparkFun-DiscreteSemi" package="SOT23" value="IRFML8244" x="3.81" y="21.59">
 <attribute name="PROD_ID" value="TRANS-08345" x="54.61" y="-16.51" size="1.778" layer="27" display="off"/>
 </element>
-<element name="Q14" library="SparkFun-DiscreteSemi" package="SOT23" value="BSS123" x="11.43" y="21.59">
+<element name="Q14" library="SparkFun-DiscreteSemi" package="SOT23" value="IRFML8244" x="11.43" y="21.59">
 <attribute name="PROD_ID" value="TRANS-08345" x="66.04" y="-16.51" size="1.778" layer="27" display="off"/>
 </element>
-<element name="Q15" library="SparkFun-DiscreteSemi" package="SOT23" value="BSS123" x="12.7" y="38.1" rot="R180">
+<element name="Q15" library="SparkFun-DiscreteSemi" package="SOT23" value="IRFML8244" x="12.7" y="38.1" rot="R180">
 <attribute name="PROD_ID" value="TRANS-08345" x="-2.54" y="87.63" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="Q16" library="SparkFun-DiscreteSemi" package="SOT23" value="BSS123" x="19.05" y="21.59">
+<element name="Q16" library="SparkFun-DiscreteSemi" package="SOT23" value="IRFML8244" x="19.05" y="21.59">
 <attribute name="PROD_ID" value="TRANS-08345" x="38.1" y="-27.94" size="1.778" layer="27" display="off"/>
 </element>
 </elements>

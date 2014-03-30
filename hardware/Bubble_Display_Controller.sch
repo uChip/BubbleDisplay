@@ -3379,23 +3379,23 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="DISPLAY1" library="SparkFun-Displays" deviceset="7-SEGMENT-4DIGIT-COUNTER" device="-HP-BUBBLE-DISPLAY" value="hp"/>
 <part name="DISPLAY2" library="SparkFun-Displays" deviceset="7-SEGMENT-4DIGIT-COUNTER" device="-HP-BUBBLE-DISPLAY" value="hp"/>
 <part name="Q1" library="SparkFun-DiscreteSemi" deviceset="MOSFET-PCHANNEL" device="SMD" value="BSS84"/>
-<part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="180"/>
+<part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="75"/>
 <part name="Q2" library="SparkFun-DiscreteSemi" deviceset="MOSFET-PCHANNEL" device="SMD" value="BSS84"/>
-<part name="R2" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="180"/>
+<part name="R2" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="75"/>
 <part name="Q3" library="SparkFun-DiscreteSemi" deviceset="MOSFET-PCHANNEL" device="SMD" value="BSS84"/>
-<part name="R3" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="180"/>
+<part name="R3" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="75"/>
 <part name="Q4" library="SparkFun-DiscreteSemi" deviceset="MOSFET-PCHANNEL" device="SMD" value="BSS84"/>
-<part name="R4" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="180"/>
+<part name="R4" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="75"/>
 <part name="Q5" library="SparkFun-DiscreteSemi" deviceset="MOSFET-PCHANNEL" device="SMD" value="BSS84"/>
-<part name="R5" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="180"/>
+<part name="R5" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="75"/>
 <part name="Q6" library="SparkFun-DiscreteSemi" deviceset="MOSFET-PCHANNEL" device="SMD" value="BSS84"/>
-<part name="R6" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="180"/>
+<part name="R6" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="75"/>
 <part name="Q7" library="SparkFun-DiscreteSemi" deviceset="MOSFET-PCHANNEL" device="SMD" value="BSS84"/>
-<part name="R7" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="180"/>
+<part name="R7" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="75"/>
 <part name="Q8" library="SparkFun-DiscreteSemi" deviceset="MOSFET-PCHANNEL" device="SMD" value="BSS84"/>
-<part name="R8" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="180"/>
-<part name="C3" library="ChipsParts" deviceset="CAP_POL" device="0805"/>
-<part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="0.1u"/>
+<part name="R8" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="75"/>
+<part name="C3" library="ChipsParts" deviceset="CAP_POL" device="0805" value="10uF"/>
+<part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="0.1uF"/>
 <part name="GND13" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="J1" library="SparkFun" deviceset="AVR_SPI_PRG_6" device="PTH" value="ICSP"/>
 <part name="U$1" library="SparkFun" deviceset="5V" device=""/>
@@ -3417,14 +3417,14 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="JP1" library="SparkFun-Connectors" deviceset="M04" device="PTH" value="I2C"/>
 <part name="GND2" library="SparkFun" deviceset="GND" device=""/>
 <part name="U$2" library="SparkFun" deviceset="5V" device=""/>
-<part name="Q9" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="BSS123"/>
-<part name="Q10" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="BSS123"/>
-<part name="Q11" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="BSS123"/>
-<part name="Q12" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="BSS123"/>
-<part name="Q13" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="BSS123"/>
-<part name="Q14" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="BSS123"/>
-<part name="Q15" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="BSS123"/>
-<part name="Q16" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="BSS123"/>
+<part name="Q9" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="IRFML8244"/>
+<part name="Q10" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="IRFML8244"/>
+<part name="Q11" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="IRFML8244"/>
+<part name="Q12" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="IRFML8244"/>
+<part name="Q13" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="IRFML8244"/>
+<part name="Q14" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="IRFML8244"/>
+<part name="Q15" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="IRFML8244"/>
+<part name="Q16" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G" value="IRFML8244"/>
 <part name="GND1" library="SparkFun" deviceset="GND" device=""/>
 </parts>
 <sheets>
@@ -3438,42 +3438,42 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <attribute name="NAME" x="-124.46" y="43.18" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="-124.46" y="40.64" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="R1" gate="G$1" x="-124.46" y="33.02" rot="R180"/>
+<instance part="R1" gate="G$1" x="-109.22" y="33.02" rot="R180"/>
 <instance part="Q2" gate="G$1" x="-129.54" y="20.32" smashed="yes" rot="MR180">
 <attribute name="NAME" x="-124.46" y="22.86" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="-124.46" y="20.32" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="R2" gate="G$1" x="-124.46" y="12.7" rot="R180"/>
+<instance part="R2" gate="G$1" x="-109.22" y="12.7" rot="R180"/>
 <instance part="Q3" gate="G$1" x="-129.54" y="0" smashed="yes" rot="MR180">
 <attribute name="NAME" x="-124.46" y="2.54" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="-124.46" y="0" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="R3" gate="G$1" x="-124.46" y="-7.62" rot="R180"/>
+<instance part="R3" gate="G$1" x="-109.22" y="-7.62" rot="R180"/>
 <instance part="Q4" gate="G$1" x="-129.54" y="-20.32" smashed="yes" rot="MR180">
 <attribute name="NAME" x="-124.46" y="-17.78" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="-124.46" y="-20.32" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="R4" gate="G$1" x="-124.46" y="-27.94" rot="R180"/>
+<instance part="R4" gate="G$1" x="-109.22" y="-27.94" rot="R180"/>
 <instance part="Q5" gate="G$1" x="-129.54" y="-40.64" smashed="yes" rot="MR180">
 <attribute name="NAME" x="-124.46" y="-38.1" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="-124.46" y="-40.64" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="R5" gate="G$1" x="-124.46" y="-48.26" rot="R180"/>
+<instance part="R5" gate="G$1" x="-109.22" y="-48.26" rot="R180"/>
 <instance part="Q6" gate="G$1" x="-129.54" y="-60.96" smashed="yes" rot="MR180">
 <attribute name="NAME" x="-124.46" y="-58.42" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="-124.46" y="-60.96" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="R6" gate="G$1" x="-124.46" y="-68.58" rot="R180"/>
+<instance part="R6" gate="G$1" x="-109.22" y="-68.58" rot="R180"/>
 <instance part="Q7" gate="G$1" x="-129.54" y="-81.28" smashed="yes" rot="MR180">
 <attribute name="NAME" x="-124.46" y="-78.74" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="-124.46" y="-81.28" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="R7" gate="G$1" x="-124.46" y="-88.9" rot="R180"/>
+<instance part="R7" gate="G$1" x="-109.22" y="-88.9" rot="R180"/>
 <instance part="Q8" gate="G$1" x="-129.54" y="-101.6" smashed="yes" rot="MR180">
 <attribute name="NAME" x="-124.46" y="-99.06" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="-124.46" y="-101.6" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="R8" gate="G$1" x="-124.46" y="-109.22" rot="R180"/>
+<instance part="R8" gate="G$1" x="-109.22" y="-109.22" rot="R180"/>
 <instance part="C3" gate="G$1" x="-256.54" y="53.34"/>
 <instance part="C1" gate="G$1" x="-266.7" y="50.8"/>
 <instance part="GND13" gate="1" x="-261.62" y="43.18"/>
@@ -3522,7 +3522,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <wire x1="-40.64" y1="-22.86" x2="-40.64" y2="-17.78" width="0.1524" layer="91"/>
 <wire x1="-40.64" y1="-22.86" x2="-86.36" y2="-22.86" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-22.86" x2="-86.36" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="-86.36" y1="12.7" x2="-119.38" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="-86.36" y1="12.7" x2="-104.14" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="R2" gate="G$1" pin="1"/>
 <junction x="-40.64" y="-22.86"/>
 <label x="-55.88" y="-22.86" size="1.778" layer="95"/>
@@ -3535,7 +3535,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <wire x1="35.56" y1="-27.94" x2="-35.56" y2="-27.94" width="0.1524" layer="91"/>
 <pinref part="DISPLAY1" gate="G$1" pin="D"/>
 <wire x1="-35.56" y1="-27.94" x2="-35.56" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="-35.56" y1="-27.94" x2="-119.38" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="-27.94" x2="-104.14" y2="-27.94" width="0.1524" layer="91"/>
 <pinref part="R4" gate="G$1" pin="1"/>
 <junction x="-35.56" y="-27.94"/>
 <label x="-55.88" y="-27.94" size="1.778" layer="95"/>
@@ -3549,7 +3549,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <pinref part="DISPLAY1" gate="G$1" pin="E"/>
 <wire x1="-33.02" y1="-30.48" x2="-33.02" y2="-17.78" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="-88.9" y1="-48.26" x2="-119.38" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="-88.9" y1="-48.26" x2="-104.14" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="-30.48" x2="-88.9" y2="-30.48" width="0.1524" layer="91"/>
 <wire x1="-88.9" y1="-30.48" x2="-88.9" y2="-48.26" width="0.1524" layer="91"/>
 <junction x="-33.02" y="-30.48"/>
@@ -3563,7 +3563,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <wire x1="40.64" y1="-33.02" x2="-30.48" y2="-33.02" width="0.1524" layer="91"/>
 <pinref part="DISPLAY1" gate="G$1" pin="F"/>
 <wire x1="-30.48" y1="-33.02" x2="-30.48" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="-86.36" y1="-68.58" x2="-119.38" y2="-68.58" width="0.1524" layer="91"/>
+<wire x1="-86.36" y1="-68.58" x2="-104.14" y2="-68.58" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="1"/>
 <wire x1="-30.48" y1="-33.02" x2="-86.36" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-33.02" x2="-86.36" y2="-68.58" width="0.1524" layer="91"/>
@@ -3580,7 +3580,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <wire x1="-27.94" y1="-35.56" x2="-27.94" y2="-17.78" width="0.1524" layer="91"/>
 <wire x1="-27.94" y1="-35.56" x2="-83.82" y2="-35.56" width="0.1524" layer="91"/>
 <wire x1="-83.82" y1="-35.56" x2="-83.82" y2="-88.9" width="0.1524" layer="91"/>
-<wire x1="-83.82" y1="-88.9" x2="-119.38" y2="-88.9" width="0.1524" layer="91"/>
+<wire x1="-83.82" y1="-88.9" x2="-104.14" y2="-88.9" width="0.1524" layer="91"/>
 <pinref part="R7" gate="G$1" pin="1"/>
 <junction x="-27.94" y="-35.56"/>
 <label x="-55.88" y="-35.56" size="1.778" layer="95"/>
@@ -3594,7 +3594,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <pinref part="DISPLAY1" gate="G$1" pin="DP"/>
 <wire x1="-25.4" y1="-38.1" x2="-25.4" y2="-17.78" width="0.1524" layer="91"/>
 <pinref part="R8" gate="G$1" pin="1"/>
-<wire x1="-81.28" y1="-109.22" x2="-119.38" y2="-109.22" width="0.1524" layer="91"/>
+<wire x1="-81.28" y1="-109.22" x2="-104.14" y2="-109.22" width="0.1524" layer="91"/>
 <wire x1="-25.4" y1="-38.1" x2="-81.28" y2="-38.1" width="0.1524" layer="91"/>
 <wire x1="-81.28" y1="-38.1" x2="-81.28" y2="-109.22" width="0.1524" layer="91"/>
 <junction x="-25.4" y="-38.1"/>
@@ -3798,7 +3798,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </net>
 <net name="SEGA" class="0">
 <segment>
-<wire x1="-83.82" y1="33.02" x2="-119.38" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="-83.82" y1="33.02" x2="-104.14" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="-83.82" y1="33.02" x2="-83.82" y2="-20.32" width="0.1524" layer="91"/>
 <pinref part="DISPLAY2" gate="G$1" pin="A"/>
@@ -3815,6 +3815,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <segment>
 <pinref part="Q1" gate="G$1" pin="D"/>
 <pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="-114.3" y1="33.02" x2="-129.54" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="-129.54" y1="33.02" x2="-129.54" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -3822,12 +3823,13 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <segment>
 <pinref part="Q2" gate="G$1" pin="D"/>
 <pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="-114.3" y1="12.7" x2="-129.54" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="-129.54" y1="12.7" x2="-129.54" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SEGC" class="0">
 <segment>
-<wire x1="-88.9" y1="-7.62" x2="-119.38" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="-88.9" y1="-7.62" x2="-104.14" y2="-7.62" width="0.1524" layer="91"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 <wire x1="-88.9" y1="-7.62" x2="-88.9" y2="-25.4" width="0.1524" layer="91"/>
 <pinref part="DISPLAY2" gate="G$1" pin="C"/>
@@ -3844,6 +3846,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <segment>
 <pinref part="Q3" gate="G$1" pin="D"/>
 <pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="-114.3" y1="-7.62" x2="-129.54" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="-129.54" y1="-7.62" x2="-129.54" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -3851,6 +3854,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <segment>
 <pinref part="Q4" gate="G$1" pin="D"/>
 <pinref part="R4" gate="G$1" pin="2"/>
+<wire x1="-114.3" y1="-27.94" x2="-129.54" y2="-27.94" width="0.1524" layer="91"/>
 <wire x1="-129.54" y1="-27.94" x2="-129.54" y2="-25.4" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -3868,6 +3872,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <segment>
 <pinref part="Q5" gate="G$1" pin="D"/>
 <pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="-114.3" y1="-48.26" x2="-129.54" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="-129.54" y1="-48.26" x2="-129.54" y2="-45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -3875,6 +3880,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <segment>
 <pinref part="Q6" gate="G$1" pin="D"/>
 <pinref part="R6" gate="G$1" pin="2"/>
+<wire x1="-114.3" y1="-68.58" x2="-129.54" y2="-68.58" width="0.1524" layer="91"/>
 <wire x1="-129.54" y1="-68.58" x2="-129.54" y2="-66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -3882,6 +3888,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <segment>
 <pinref part="Q7" gate="G$1" pin="D"/>
 <pinref part="R7" gate="G$1" pin="2"/>
+<wire x1="-114.3" y1="-88.9" x2="-129.54" y2="-88.9" width="0.1524" layer="91"/>
 <wire x1="-129.54" y1="-88.9" x2="-129.54" y2="-86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -3889,6 +3896,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <segment>
 <pinref part="Q8" gate="G$1" pin="D"/>
 <pinref part="R8" gate="G$1" pin="2"/>
+<wire x1="-114.3" y1="-109.22" x2="-129.54" y2="-109.22" width="0.1524" layer="91"/>
 <wire x1="-129.54" y1="-109.22" x2="-129.54" y2="-106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
