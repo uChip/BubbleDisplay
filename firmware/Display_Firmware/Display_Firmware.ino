@@ -43,6 +43,9 @@ union TheData {
 byte buffOffset;
 
 void setup() {
+  DDRD = B11111111; //set PORTD as outputs
+  PORTD = B11111111; //initialize PORTD to all segments off
+
   pinMode(DIGIT_1, OUTPUT);
   pinMode(DIGIT_2, OUTPUT);
   pinMode(DIGIT_3, OUTPUT);
@@ -99,37 +102,38 @@ void receiveEvent(int howMany)
 
 void displayFrame(){
   // display the first 8 chars of the displayBuff
-    PORT_D = charROM[fromMaster.cntl.displayBuff[0]];
+    PORTD = charROM[fromMaster.cntl.displayBuff[0]];
     digitalWrite(DIGIT_1, HIGH);
     delay(1);
     digitalWrite(DIGIT_1, LOW);
-    PORT_D = charROM[fromMaster.cntl.displayBuff[1]];
+    PORTD = charROM[fromMaster.cntl.displayBuff[1]];
     digitalWrite(DIGIT_2, HIGH);
     delay(1);
     digitalWrite(DIGIT_2, LOW);
-    PORT_D = charROM[fromMaster.cntl.displayBuff[2]];
+    PORTD = charROM[fromMaster.cntl.displayBuff[2]];
     digitalWrite(DIGIT_3, HIGH);
     delay(1);
     digitalWrite(DIGIT_3, LOW);
-    PORT_D = charROM[fromMaster.cntl.displayBuff[3]];
+    PORTD = charROM[fromMaster.cntl.displayBuff[3]];
     digitalWrite(DIGIT_4, HIGH);
     delay(1);
     digitalWrite(DIGIT_4, LOW);
-    PORT_D = charROM[fromMaster.cntl.displayBuff[4]];
+    PORTD = charROM[fromMaster.cntl.displayBuff[4]];
     digitalWrite(DIGIT_5, HIGH);
     delay(1);
     digitalWrite(DIGIT_5, LOW);
-    PORT_D = charROM[fromMaster.cntl.displayBuff[5]];
+    PORTD = charROM[fromMaster.cntl.displayBuff[5]];
     digitalWrite(DIGIT_6, HIGH);
     delay(1);
     digitalWrite(DIGIT_6, LOW);
-    PORT_D = charROM[fromMaster.cntl.displayBuff[6]];
+    PORTD = charROM[fromMaster.cntl.displayBuff[6]];
     digitalWrite(DIGIT_7, HIGH);
     delay(1);
     digitalWrite(DIGIT_7, LOW);
-    PORT_D = charROM[fromMaster.dcntl.isplayBuff[7]];
+    PORTD = charROM[fromMaster.dcntl.isplayBuff[7]];
     digitalWrite(DIGIT_8, HIGH);
     delay(1);
     digitalWrite(DIGIT_8, LOW);
 }
+
 
