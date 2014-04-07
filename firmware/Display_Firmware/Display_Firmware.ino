@@ -6,11 +6,13 @@
 #include "CharGenROM.h"
 
 // Define pins used in this sketch
+// debug LED
+#define LED 13
 // ADC0-ADC3
-#define DIGIT_1  A4
-#define DIGIT_2  A3
-#define DIGIT_3  A2
-#define DIGIT_4  A1
+#define DIGIT_1  A3
+#define DIGIT_2  A2
+#define DIGIT_3  A1
+#define DIGIT_4  A0
 // ADC6, ADC7
 #define DIGIT_5  A6
 #define DIGIT_6  A7
@@ -18,7 +20,7 @@
 #define DIGIT_7  8
 #define DIGIT_8  9
 
-// Segments written as an 8-bit register (AVR port D = PORTD)
+// Segments written as an 8-bit register
 
 // Command Byte Definition
 // Bit-7: Upsidedown Display - useful when display needs to be mounted upsidedown
@@ -46,6 +48,8 @@
 // Declare global variables
 unsigned long looptime;
 
+char banner[] = {'S', 'P', 'A', 'r', 'k', 'F', 'u', 'n'};
+
 union TheData {
   struct controlStruct {
     byte controlByte;
@@ -58,9 +62,8 @@ union TheData {
 byte buffOffset;
 
 void setup() {
-  DDRD = B11111111; //set PORTD as outputs
-  PORTD = B11111111; //initialize PORTD to all segments off
-
+  DDRD = 0xFF;
+  PORTD = 0x00;
   pinMode(DIGIT_1, OUTPUT);
   pinMode(DIGIT_2, OUTPUT);
   pinMode(DIGIT_3, OUTPUT);
@@ -77,8 +80,13 @@ void setup() {
   digitalWrite(DIGIT_6, LOW);
   digitalWrite(DIGIT_7, LOW);
   digitalWrite(DIGIT_8, LOW);
-  Wire.begin(4);                // join i2c bus with address #4
-  Wire.onReceive(receiveEvent); // register event
+  //Wire.begin(4);                // join i2c bus with address #4
+  //Wire.onReceive(receiveEvent); // register event
+  
+  fromMaster.cntl.controlByte = 0;
+  for(byte i=0;i<8;i++){
+    fromMaster.cntl.displayBuff[i] = banner[i];
+  }
 
     looptime = millis() + LOOP_DURATION; 
 }
@@ -87,7 +95,9 @@ void loop() {
   // Do loopy application stuff
   switch(fromMaster.cntl.controlByte){
   case STD:
+    digitalWrite(LED, HIGH);
     displayFrame();
+    digitalWrite(LED, LOW);
     break;
   case SCROLL:
     scrollFrame(buffOffset);
@@ -117,37 +127,44 @@ void receiveEvent(int howMany)
 
 void displayFrame(){
   // display the first 8 chars of the displayBuff
-    PORTD = chargen[fromMaster.cntl.displayBuff[0]];
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[0]];
     digitalWrite(DIGIT_1, HIGH);
-    delay(1);
+    delay(3);
     digitalWrite(DIGIT_1, LOW);
-    PORTD = chargen[fromMaster.cntl.displayBuff[1]];
+
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[1]];
     digitalWrite(DIGIT_2, HIGH);
-    delay(1);
+    delay(3);
     digitalWrite(DIGIT_2, LOW);
-    PORTD = chargen[fromMaster.cntl.displayBuff[2]];
+
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[2]];
     digitalWrite(DIGIT_3, HIGH);
-    delay(1);
+    delay(3);
     digitalWrite(DIGIT_3, LOW);
-    PORTD = chargen[fromMaster.cntl.displayBuff[3]];
+
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[3]];
     digitalWrite(DIGIT_4, HIGH);
-    delay(1);
+    delay(3);
     digitalWrite(DIGIT_4, LOW);
-    PORTD = chargen[fromMaster.cntl.displayBuff[4]];
+
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[4]];
     digitalWrite(DIGIT_5, HIGH);
-    delay(1);
+    delay(3);
     digitalWrite(DIGIT_5, LOW);
-    PORTD = chargen[fromMaster.cntl.displayBuff[5]];
+
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[5]];
     digitalWrite(DIGIT_6, HIGH);
-    delay(1);
+    delay(3);
     digitalWrite(DIGIT_6, LOW);
-    PORTD = chargen[fromMaster.cntl.displayBuff[6]];
+
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[6]];
     digitalWrite(DIGIT_7, HIGH);
-    delay(1);
+    delay(3);
     digitalWrite(DIGIT_7, LOW);
-    PORTD = chargen[fromMaster.cntl.displayBuff[7]];
+
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[7]];
     digitalWrite(DIGIT_8, HIGH);
-    delay(1);
+    delay(3);
     digitalWrite(DIGIT_8, LOW);
 }
 
@@ -156,4 +173,3 @@ void scrollFrame(byte index){
 
 void reboot(){
 }
-
