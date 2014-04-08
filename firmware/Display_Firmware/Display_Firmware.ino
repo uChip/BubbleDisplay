@@ -20,7 +20,7 @@
 #define DIGIT_7  8
 #define DIGIT_8  9
 
-// Segments written as an 8-bit register
+// Segments written as an 8-bit register (port D)
 
 // Command Byte Definition
 // Bit-7: Upsidedown Display - useful when display needs to be mounted upsidedown
@@ -45,6 +45,10 @@
 // This sets the delay time for the scrolling.
 //   Value is in milliseconds so default of 500ul means scroll rate is two char per second.
 #define LOOP_DURATION  500ul
+
+// This sets the delay time for frame rate
+// The value is repeated for each of 8 digits on the display so frame rate = 1 / (8 * DIGIT_TIME) = 1mS -> 125 Hz
+#define DIGIT_TIME 1
 
 // Instantiate objects used in this project
 
@@ -144,42 +148,42 @@ void displayFrame(int index){
   // display the first 8 chars of the displayBuff
     PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 0]];
     digitalWrite(DIGIT_1, HIGH);
-    delay(3);
+    delay(DIGIT_TIME);
     digitalWrite(DIGIT_1, LOW);
 
     PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 1]];
     digitalWrite(DIGIT_2, HIGH);
-    delay(3);
+    delay(DIGIT_TIME);
     digitalWrite(DIGIT_2, LOW);
 
     PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 2]];
     digitalWrite(DIGIT_3, HIGH);
-    delay(3);
+    delay(DIGIT_TIME);
     digitalWrite(DIGIT_3, LOW);
 
     PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 3]];
     digitalWrite(DIGIT_4, HIGH);
-    delay(3);
+    delay(DIGIT_TIME);
     digitalWrite(DIGIT_4, LOW);
 
     PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 4]];
     digitalWrite(DIGIT_5, HIGH);
-    delay(3);
+    delay(DIGIT_TIME);
     digitalWrite(DIGIT_5, LOW);
 
     PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 5]];
     digitalWrite(DIGIT_6, HIGH);
-    delay(3);
+    delay(DIGIT_TIME);
     digitalWrite(DIGIT_6, LOW);
 
     PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 6]];
     digitalWrite(DIGIT_7, HIGH);
-    delay(3);
+    delay(DIGIT_TIME);
     digitalWrite(DIGIT_7, LOW);
 
     PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 7]];
     digitalWrite(DIGIT_8, HIGH);
-    delay(3);
+    delay(DIGIT_TIME);
     digitalWrite(DIGIT_8, LOW);
 }
 
