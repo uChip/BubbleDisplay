@@ -29,6 +29,7 @@
     // 1 - scrolling mode displays N chars of displayBuff then jumps back to beginning
     // 2 - not yet defined
     // 3 - not yet defined
+#define MODE_FLAG 0x60
 // common commands
  // simple 8-char right side up
 #define STD 0x00
@@ -38,10 +39,12 @@
 #define USD 0x80
  // scroll upsidedown
 #define USDSCROLL 0xC0
+ // easter egg
+#define EASTEREGG 0xFF
 
 // This sets the delay time for the scrolling.
-//   Value is in milliseconds so default of 1000ul means one char per second.
-#define LOOP_DURATION  1000ul
+//   Value is in milliseconds so default of 500ul means scroll rate is two char per second.
+#define LOOP_DURATION  500ul
 
 // Instantiate objects used in this project
 
@@ -59,11 +62,15 @@ union TheData {
   byte rcvArray[257];
 } fromMaster;
 
-byte buffOffset;
+int buffOffset;
 
 void setup() {
+  // set up the debug LED
+  pinMode(LED, OUTPUT);
+  // set up the segment control port
   DDRD = 0xFF;
   PORTD = 0x00;
+  // set up the digit control pins
   pinMode(DIGIT_1, OUTPUT);
   pinMode(DIGIT_2, OUTPUT);
   pinMode(DIGIT_3, OUTPUT);
@@ -80,15 +87,20 @@ void setup() {
   digitalWrite(DIGIT_6, LOW);
   digitalWrite(DIGIT_7, LOW);
   digitalWrite(DIGIT_8, LOW);
-  //Wire.begin(4);                // join i2c bus with address #4
-  //Wire.onReceive(receiveEvent); // register event
+  // set up the I2C port
+  Wire.begin(4);                // join i2c bus with address #4
+  Wire.onReceive(receiveEvent); // register event
   
+  // initialize the control, length and frame buffer values
   fromMaster.cntl.controlByte = 0;
+  fromMaster.cntl.lengthByte = 0;
   for(byte i=0;i<8;i++){
     fromMaster.cntl.displayBuff[i] = banner[i];
   }
 
-    looptime = millis() + LOOP_DURATION; 
+  // set up the scroll delay
+  looptime = millis() + LOOP_DURATION;
+  buffOffset = 0;
 }
 
 void loop() {
@@ -96,19 +108,20 @@ void loop() {
   switch(fromMaster.cntl.controlByte){
   case STD:
     digitalWrite(LED, HIGH);
-    displayFrame();
+    displayFrame(0);
     digitalWrite(LED, LOW);
     break;
   case SCROLL:
-    scrollFrame(buffOffset);
+    displayFrame(buffOffset);
     break;
   default:
     break;
   }
   
-  if(looptime > millis()){
+  if(millis() > looptime){
     looptime += LOOP_DURATION;
     buffOffset++;
+    if(buffOffset > int(fromMaster.cntl.lengthByte - 8)) buffOffset = 0;
   }
 }
 
@@ -123,52 +136,51 @@ void receiveEvent(int howMany)
   for(i=0;i<howMany;i++){
     fromMaster.rcvArray[i] = Wire.read(); // receive byte as a character
   }
+  
+  if(fromMaster.cntl.controlByte & MODE_FLAG == SCROLL) buffOffset = 0;
 }
 
-void displayFrame(){
+void displayFrame(int index){
   // display the first 8 chars of the displayBuff
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[0]];
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 0]];
     digitalWrite(DIGIT_1, HIGH);
     delay(3);
     digitalWrite(DIGIT_1, LOW);
 
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[1]];
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 1]];
     digitalWrite(DIGIT_2, HIGH);
     delay(3);
     digitalWrite(DIGIT_2, LOW);
 
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[2]];
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 2]];
     digitalWrite(DIGIT_3, HIGH);
     delay(3);
     digitalWrite(DIGIT_3, LOW);
 
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[3]];
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 3]];
     digitalWrite(DIGIT_4, HIGH);
     delay(3);
     digitalWrite(DIGIT_4, LOW);
 
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[4]];
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 4]];
     digitalWrite(DIGIT_5, HIGH);
     delay(3);
     digitalWrite(DIGIT_5, LOW);
 
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[5]];
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 5]];
     digitalWrite(DIGIT_6, HIGH);
     delay(3);
     digitalWrite(DIGIT_6, LOW);
 
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[6]];
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 6]];
     digitalWrite(DIGIT_7, HIGH);
     delay(3);
     digitalWrite(DIGIT_7, LOW);
 
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[7]];
+    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 7]];
     digitalWrite(DIGIT_8, HIGH);
     delay(3);
     digitalWrite(DIGIT_8, LOW);
-}
-
-void scrollFrame(byte index){
 }
 
 void reboot(){

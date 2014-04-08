@@ -1,6 +1,6 @@
 # hp Bubble Display Controller  
 
-<img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_front.png" alt="Bubble Display Controller front side" height="250" width="220">___<img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_back.png" alt="Bubble Display Controller back side" height="250" width="220">  
+<img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_front.png" alt="Bubble Display Controller front side" height="250" width="231">___<img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_back.png" alt="Bubble Display Controller back side" height="250" width="231">  
 
 This is the beginning of a board and firmware project supporting hp's 4 digit 7 segment LED bubble display, QDSP-6064, available (soon) from [SparkFun](https://www.sparkfun.com/products/12710).  The project is intended to enable a pair of displays to be easily connected over a two-wire I2C bus to a microcontroller (e.g. Arduino).  The board is also an example circuit of how to get reasonable brightness from these small displays.  By having a separate microcontroller driving the display, the burden (I/O pins, code space & CPU cycles) on the main application microcontroller is reduced.
 
@@ -28,10 +28,10 @@ See Bill of Materials file in repo for parts list.
 Design files are in "CadSoft EAGLE PCB Design Software" .brd and .sch formats.  
 A free version of the software can be downloaded from www.cadsoftusa.com.  
 
-<img src="https://raw.github.com/uChip/BubbleDisplay/master/BubbleDisplay_sch.PNG" alt="schematic" height="395" width="603">  
+<img src="https://raw.github.com/uChip/BubbleDisplay/master/BubbleDisplay_sch.PNG" alt="schematic" height="401" width="597">  
 schematic  
 
-<img src="https://raw.github.com/uChip/BubbleDisplay/master/BubbleDisplay_brd.PNG" alt="PCB" height="395" width="356">  
+<img src="https://raw.github.com/uChip/BubbleDisplay/master/BubbleDisplay_brd.PNG" alt="PCB" height="405" width="375">  
 PCB   
 
 Firmware is developed using the [Arduino](http://arduino.cc/) 1.0.5-r2 IDE and the source files are in Arduino .ino format (and .h or .cpp formats as applicable).
