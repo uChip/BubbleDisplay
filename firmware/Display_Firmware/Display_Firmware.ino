@@ -188,4 +188,5 @@ void displayFrame(int index){
 }
 
 void reboot(){
+  asm volatile ("  jmp 0");  
 }
