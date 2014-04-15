@@ -1,9 +1,8 @@
 
-// Basic framework for starting a new Arduino sketch
-
 // Include libraries this sketch will use
 #include <Wire.h>
 #include "CharGenROM.h"
+#include "BubbleCommands.h"
 
 // Define pins used in this sketch
 // debug LED
@@ -22,51 +21,22 @@
 
 // Segments written as an 8-bit register (port D)
 
-// Command Byte Definition
-// Bit-7: Upsidedown Display - useful when display needs to be mounted upsidedown
-// Bits-6,5: Mode - selects refresh mode
-    // 0 - standard mode displays first 8 chars of displayBuff
-    // 1 - scrolling mode displays N chars of displayBuff then jumps back to beginning
-    // 2 - not yet defined
-    // 3 - not yet defined
-#define MODE_FLAG 0x60
-// common commands
- // simple 8-char right side up
-#define STD 0x00
- // scroll right side up
-#define SCROLL 0x40
- // simple 8-char upsidedown
-#define USD 0x80
- // scroll upsidedown
-#define USDSCROLL 0xC0
- // easter egg
-#define EASTEREGG 0xFF
-
-// This sets the delay time for the scrolling.
-//   Value is in milliseconds so default of 500ul means scroll rate is two char per second.
-#define LOOP_DURATION  500ul
-
 // This sets the delay time for frame rate
-// The value is repeated for each of 8 digits on the display so frame rate = 1 / (8 * DIGIT_TIME) = 1mS -> 125 Hz
+// The value is repeated for each of 8 digits on the display so 
+//   frame rate = 1 / (8 * DIGIT_TIME) = 1mS -> 125 Hz
 #define DIGIT_TIME 1
 
-// Instantiate objects used in this project
-
 // Declare global variables
-unsigned long looptime;
+uint8_t cursor = 0;
+uint8_t scroll = 0;
+boolean enable = true;
 
+// Default startup data
 char banner[] = {'S', 'P', 'A', 'r', 'k', 'F', 'u', 'n'};
 
-union TheData {
-  struct controlStruct {
-    byte controlByte;
-    byte lengthByte;
-    char displayBuff[255];
-  }cntl;
-  byte rcvArray[257];
-} fromMaster;
+char displayBuff[256];
+byte rcvArray[3];
 
-int buffOffset;
 
 void setup() {
   // set up the debug LED
@@ -91,100 +61,129 @@ void setup() {
   digitalWrite(DIGIT_6, LOW);
   digitalWrite(DIGIT_7, LOW);
   digitalWrite(DIGIT_8, LOW);
+
+  clearDisplay();
+
+  for(int i=0;i<8;i++){
+    displayBuff[i] = banner[i];
+  }
+
   // set up the I2C port
   Wire.begin(4);                // join i2c bus with address #4
   Wire.onReceive(receiveEvent); // register event
   
-  // initialize the control, length and frame buffer values
-  fromMaster.cntl.controlByte = 0;
-  fromMaster.cntl.lengthByte = 0;
-  for(byte i=0;i<8;i++){
-    fromMaster.cntl.displayBuff[i] = banner[i];
-  }
-
-  // set up the scroll delay
-  looptime = millis() + LOOP_DURATION;
-  buffOffset = 0;
 }
 
 void loop() {
-  // Do loopy application stuff
-  switch(fromMaster.cntl.controlByte){
-  case STD:
-    digitalWrite(LED, HIGH);
-    displayFrame(0);
-    digitalWrite(LED, LOW);
-    break;
-  case SCROLL:
-    displayFrame(buffOffset);
-    break;
-  default:
-    break;
-  }
-  
-  if(millis() > looptime){
-    looptime += LOOP_DURATION;
-    buffOffset++;
-    if(buffOffset > int(fromMaster.cntl.lengthByte - 8)) buffOffset = 0;
-  }
-}
 
-// function that executes whenever data is received from master
-// this function is registered as an event, see setup()
-void receiveEvent(int howMany)
-{
-  int i;
+  // display 8 chars of the displayBuff starting at the scroll posn
 
-  if(howMany >257) reboot();
-
-  for(i=0;i<howMany;i++){
-    fromMaster.rcvArray[i] = Wire.read(); // receive byte as a character
-  }
-  
-  if(fromMaster.cntl.controlByte & MODE_FLAG == SCROLL) buffOffset = 0;
-}
-
-void displayFrame(int index){
-  // display the first 8 chars of the displayBuff
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 0]];
-    digitalWrite(DIGIT_1, HIGH);
+    PORTD = ~chargen[displayBuff[scroll + 0]];
+    if(enable) digitalWrite(DIGIT_1, HIGH);
     delay(DIGIT_TIME);
     digitalWrite(DIGIT_1, LOW);
 
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 1]];
-    digitalWrite(DIGIT_2, HIGH);
+    PORTD = ~chargen[displayBuff[scroll + 1]];
+    if(enable) digitalWrite(DIGIT_2, HIGH);
     delay(DIGIT_TIME);
     digitalWrite(DIGIT_2, LOW);
 
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 2]];
-    digitalWrite(DIGIT_3, HIGH);
+    PORTD = ~chargen[displayBuff[scroll + 2]];
+    if(enable) digitalWrite(DIGIT_3, HIGH);
     delay(DIGIT_TIME);
     digitalWrite(DIGIT_3, LOW);
 
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 3]];
-    digitalWrite(DIGIT_4, HIGH);
+    PORTD = ~chargen[displayBuff[scroll + 3]];
+    if(enable) digitalWrite(DIGIT_4, HIGH);
     delay(DIGIT_TIME);
     digitalWrite(DIGIT_4, LOW);
 
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 4]];
-    digitalWrite(DIGIT_5, HIGH);
+    PORTD = ~chargen[displayBuff[scroll + 4]];
+    if(enable) digitalWrite(DIGIT_5, HIGH);
     delay(DIGIT_TIME);
     digitalWrite(DIGIT_5, LOW);
 
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 5]];
-    digitalWrite(DIGIT_6, HIGH);
+    PORTD = ~chargen[displayBuff[scroll + 5]];
+    if(enable) digitalWrite(DIGIT_6, HIGH);
     delay(DIGIT_TIME);
     digitalWrite(DIGIT_6, LOW);
 
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 6]];
-    digitalWrite(DIGIT_7, HIGH);
+    PORTD = ~chargen[displayBuff[scroll + 6]];
+    if(enable) digitalWrite(DIGIT_7, HIGH);
     delay(DIGIT_TIME);
     digitalWrite(DIGIT_7, LOW);
 
-    PORTD = ~chargen[fromMaster.cntl.displayBuff[index + 7]];
-    digitalWrite(DIGIT_8, HIGH);
+    PORTD = ~chargen[displayBuff[scroll + 7]];
+    if(enable) digitalWrite(DIGIT_8, HIGH);
     delay(DIGIT_TIME);
     digitalWrite(DIGIT_8, LOW);
+}
+
+// This function executes whenever data is received from master
+// Function is registered as an event, see setup()
+void receiveEvent(int howMany)
+{
+  if(howMany > 3) reboot();
+
+  for(int i=0;i<howMany;i++){
+    rcvArray[i] = Wire.read(); // receive byte as a character
+  }
+
+  processCommand();
+}
+
+
+void processCommand(){
+    switch(rcvArray[0]){
+    case LED_CLEARDISPLAY:
+      clearDisplay();
+    break;
+    case LED_HOMECURSOR:
+      cursor = 0;
+    break;
+    case LED_HOMESCROLL:
+      scroll = 0;
+    break;
+    case LED_DISPLAYON:
+      enable = true;
+    break;
+    case LED_DISPLAYOFF:
+      enable = false;
+    break;
+    case LED_SCROLLLEFT:
+      scroll++;
+      if(scroll>255-8) scroll = 255-8; //don't go past the end
+    break;
+    case LED_SCROLLRIGHT:
+      scroll--;
+      if(scroll>255-8) scroll = 0; //don't go past the beginning
+    break;
+    case LED_SETCURSOR:
+      cursor = rcvArray[1];
+    break;
+    case LED_SETSCROLL:
+      scroll = rcvArray[1];
+    break;
+    case LED_CREATECHAR:
+      chargen[rcvArray[1]] = rcvArray[2];
+    break;
+    case LED_DATA:
+      displayBuff[cursor++] = rcvArray[1];
+    break;
+    default:
+      reboot();
+    }
+}
+
+void clearDisplay(){
+  // initialize the control and data
+  cursor = 0;
+  scroll = 0;
+  enable = true;
+
+  for(int i=0;i<256;i++){
+    displayBuff[i] = ' ';
+  }
 }
 
 void reboot(){

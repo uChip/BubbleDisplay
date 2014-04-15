@@ -1,8 +1,8 @@
 /**************************************************************************/
-/*! 
-    @file     BubbleDisplay.cpp
-    @author   C. Schnarel
-	@license  Beerware
+/* 
+    file:     BubbleDisplay.cpp
+    author:   C. Schnarel
+    license:  Beerware
 	
     This is part of an Arduino library to interface with the hp "Bubble Display"
     (4-digit, 7-segment LED display) controller which is connected via the I2C
@@ -14,23 +14,22 @@
     Updates should (hopefully) always be available at
         https://github.com/uChip/BubbleDisplay
 
-	@section  HISTORY
+    HISTORY
 
     2014-Apr-24  - First release, C. Schnarel
-*/
+ */
 /**************************************************************************/
 
 #include "BubbleDisplay.h"
+#include "BubbleCommands.h"
 
 /** Default constructor, uses default I2C address.
- * @see LED_DEFAULTADDR
  */
 BubbleDisplay::BubbleDisplay() {
     devAddr = LED_DEFAULTADDR;
 }
 
 /** Specific address constructor.
- * @param address I2C address
  */
 BubbleDisplay::BubbleDisplay(uint8_t address) {
     devAddr = address;
@@ -43,14 +42,13 @@ BubbleDisplay::BubbleDisplay(uint8_t address) {
  */
 void BubbleDisplay::begin() {
   sendCmd(LED_CLEARDISPLAY);	
-  sendCmd(LED_DISPLAYON);	
 }
 
 /** Verify the I2C connection.
  * Make sure the device is connected and responds as expected.
- * @return true if connection is valid, false otherwise
+ * Return true if connection is valid, false otherwise
  */
-bool BubbleDisplay::testConnection() {
+bool BubbleDisplay::testConnection(){
     Wire.beginTransmission(devAddr);
     return (Wire.endTransmission() == 0);
 }
@@ -58,14 +56,15 @@ bool BubbleDisplay::testConnection() {
 /** Clears the display buffer and sets the cursor and scroll posns to zero
  */
 void BubbleDisplay::clear(){
-  sendCmd(LED_CLEARDISPLAY);	
+  sendCmd(LED_CLEARDISPLAY);
 }
 
 /** Sets the cursor posn to zero.
  *  Also sets the scroll posn to zero.
  */
 void BubbleDisplay::home(){
-  sendCmd(LED_RETURNHOME);	
+  sendCmd(LED_HOMESCROLL);	
+  sendCmd(LED_HOMECURSOR);	
 }
 
 /** Sets the cursor location
@@ -103,10 +102,10 @@ void BubbleDisplay::scrollDisplayRight(){
 
 /** Replaces char in the character generator with defn
  */
-void BubbleDisplay::createChar(uint8_t char, uint8_t defn){
+void BubbleDisplay::createChar(uint8_t which, uint8_t defn){
     Wire.beginTransmission(devAddr);
     Wire.write(LED_CREATECHAR);
-    Wire.write(char);
+    Wire.write(which);
     Wire.write(defn);
     Wire.endTransmission();
 }
@@ -114,7 +113,7 @@ void BubbleDisplay::createChar(uint8_t char, uint8_t defn){
 /** write a char to the current cursor position.
  *  Cursor automatically increments to next position (255 max)
  */
-virtual void BubbleDisplay::write(uint8_t value){
+size_t BubbleDisplay::write(uint8_t value){
     Wire.beginTransmission(devAddr);
     Wire.write(LED_DATA);
     Wire.write(value);
@@ -123,23 +122,25 @@ virtual void BubbleDisplay::write(uint8_t value){
 
 /** Write a null-terminated string to the display starting at the
  *  current cursor posn.  Cursor automatically increments to next
- *  posn (255 max)
- */
+ *  posn (256 max)
 virtual void BubbleDisplay::write(const char *str){
-    Wire.beginTransmission(devAddr);
-    Wire.write(LED_DATA);
     int i=0;
     while(*str && i<256){
+
+        Wire.beginTransmission(devAddr);
+        Wire.write(LED_DATA);
         Wire.write(*str);
+        Wire.endTransmission();
+
         str++;
         i++;
     }
-    Wire.endTransmission();
 }
+ */
   
 /** which char, char defn
  */
-void BubbleDisplay::sendCmd(uint8_t command)){
+void BubbleDisplay::sendCmd(uint8_t command) {
     Wire.beginTransmission(devAddr);
     Wire.write(command);
     Wire.endTransmission();
