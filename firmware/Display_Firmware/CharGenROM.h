@@ -1,6 +1,6 @@
 //#include <avr/pgmspace.h>
 
-// Character map for 7-segment displays
+// Character generator for 7-segment displays
 uint8_t	chargen[] = {
 //  dpGFEDCBA  Segments
   0b11000000, //0b1111110, // 0
@@ -133,7 +133,7 @@ uint8_t	chargen[] = {
   0b11111111, //0b0000000, // 127 'DEL'  NO DISPLAY
 };
 
-// Upsidedown character map for 7-segment displays
+/* // Upsidedown character map for 7-segment displays
 uint8_t	PROGMEM	updown_chargen[] = {
 //  ABCDEFG  Segments
   0b1111110, // 0
@@ -265,4 +265,4 @@ uint8_t	PROGMEM	updown_chargen[] = {
   0b11111111, //0b0000000, // 126 '~'  NO DISPLAY
   0b11111111, //0b0000000, // 127 'DEL'  NO DISPLAY
 };
-
+ */

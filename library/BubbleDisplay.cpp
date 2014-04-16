@@ -100,6 +100,13 @@ void BubbleDisplay::scrollDisplayRight(){
   sendCmd(LED_SCROLLRIGHT);	
 }
 
+/** Restart the display firmware
+ *  Any reprogrammed characters will be reset to defaults
+ */
+void BubbleDisplay::restart(){
+  sendCmd(LED_RESTART);	
+}
+
 /** Replaces char in the character generator with defn
  */
 void BubbleDisplay::createChar(uint8_t which, uint8_t defn){

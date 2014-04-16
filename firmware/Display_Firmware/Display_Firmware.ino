@@ -32,7 +32,7 @@ uint8_t scroll = 0;
 boolean enable = true;
 
 // Default startup data
-char banner[] = {'S', 'P', 'A', 'r', 'k', 'F', 'u', 'n'};
+char banner[] = {'S', 'P', 'A', 'R', 'K', 'F', 'U', 'N'};
 
 char displayBuff[256];
 byte rcvArray[3];
@@ -169,6 +169,9 @@ void processCommand(){
     break;
     case LED_DATA:
       displayBuff[cursor++] = rcvArray[1];
+    break;
+    case LED_RESTART:
+      reboot();
     break;
     default:
       reboot();

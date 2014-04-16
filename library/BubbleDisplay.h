@@ -47,6 +47,7 @@ public:
   void display();  // enable display
   void scrollDisplayLeft();  
   void scrollDisplayRight();
+  void restart();
 
   void createChar(uint8_t, uint8_t);  // which char, char defn
 
