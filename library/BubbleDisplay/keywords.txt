@@ -1,0 +1,31 @@
+#######################################
+# Syntax Coloring Map for BubbleDisplay
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+BubbleDisplay	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+testConnection	KEYWORD2
+clear 	KEYWORD2
+home 	KEYWORD2
+setCursor	KEYWORD2
+noDisplay	KEYWORD2
+display	KEYWORD2
+scrollDisplayLeft	KEYWORD2
+scrollDisplayRight	KEYWORD2
+restart	KEYWORD2
+createChar	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+LED_DEFAULTADDR		LITERAL1

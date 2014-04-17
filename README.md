@@ -2,14 +2,15 @@
 
 <img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_front.png" alt="Bubble Display Controller front side" height="250" width="231">___<img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_back.png" alt="Bubble Display Controller back side" height="250" width="231">  
 
-This is the beginning of a board and firmware project supporting hp's 4 digit 7 segment LED bubble display, QDSP-6064, available from [SparkFun](https://www.sparkfun.com/products/12710).  The project is intended to enable a pair of displays to be easily connected over a two-wire I2C bus to a microcontroller (e.g. Arduino).  The board is also an example circuit of how to get reasonable brightness from these small displays.  By having a separate microcontroller driving the display, the burden (I/O pins, code space & CPU cycles) on the main application microcontroller is reduced.
+This is a board and firmware project supporting hp's 4 digit 7 segment LED bubble display, QDSP-6064, available from [SparkFun](https://www.sparkfun.com/products/12710).  The project is intended to enable a pair of displays to be easily connected over a two-wire I2C bus to a microcontroller (e.g. Arduino).  The board is also an example circuit of how to get reasonable brightness from these small displays.  By having a separate microcontroller driving the display, the burden (I/O pins, code space & CPU cycles) on the main application microcontroller is reduced.
 
+For a more detailed write-up of the project see BubbleDisplay.pdf in the repo or see [this thread on the SparkFun forum](https://forum.sparkfun.com/viewtopic.php?f=14&t=38056).
 
 Here is a photo of the functional display.  
 
 <img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_front.jpg" alt="Coming Soon" height="213" width="320">  
 
-This repo includes Eagle CAD PCB design files for the board and ultimately will include the controller firmware.  The board acts as an I2C slave driven from another microcontroller as I2C master.
+This repo includes Eagle CAD PCB design files for the board, and Arduino source code for controller firmware and interface library with examples.  The board acts as an I2C slave driven from another microcontroller as I2C master.
 
 ## Order PCBs  
 
@@ -19,9 +20,9 @@ You can order this PCB directly from OSH Park.  Click on the following link.
 See Bill of Materials file in repo for parts list.  
 
 ## Status  
-  * PCB layout has been completed and submitted to fab at Osh Park.  I expect boards back in 10 to 14 days.
+  * PCB layout has been completed and submitted to fab at Osh Park.  I expect boards back in 1 to 2 days.
   * PCB has not been proven.  Circuit has been prototyped and simulated, so confidence is reasonable, but order PCBs at this time at your own risk.
-  * Firmware has not yet been written but there are no new inventions required.  I expect no significant issues and the dedicated microcontroller seems adequate to the task.
+  * Firmware, library and examples been completed and tested with an earlier prototype.  Waiting to test with the final PCB.
 
 ## File Formats  
 
@@ -34,11 +35,11 @@ schematic
 <img src="https://raw.github.com/uChip/BubbleDisplay/master/BubbleDisplay_brd.PNG" alt="PCB" height="405" width="375">  
 PCB   
 
-Firmware is developed using the [Arduino](http://arduino.cc/) 1.0.5-r2 IDE and the source files are in Arduino .ino format (and .h or .cpp formats as applicable).
+Firmware, library and examples were developed using the [Arduino](http://arduino.cc/) 1.0.5-r2 IDE and the source files are in Arduino .ino format (and .h or .cpp formats as applicable).
 
 ## Distribution License  
 
-You may use this PCB design and firmware however you like but no liability is accepted.  
+You may use this PCB design and source code however you like but no liability is accepted.  
 
 ## Attributions
 
