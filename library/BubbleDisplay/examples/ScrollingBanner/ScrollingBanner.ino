@@ -41,7 +41,7 @@ int j=0;
 int k=1;
 
 void loop() {
-  if(j>31 || j<0) k = -k;
+  if(j>22 || j<0) k = -k;
   if(k>0)  theDisplay.scrollDisplayLeft();
   if(k<0)  theDisplay.scrollDisplayRight();
   j += k;
