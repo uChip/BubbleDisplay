@@ -8,14 +8,14 @@ For a more detailed write-up of the project see BubbleDisplay.pdf in the repo or
 
 Here is a photo of the functional display.  
 
-<img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_front.jpg" alt="Coming Soon" height="213" width="320">  
+<img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_front.jpg" alt="v07APR2014" height="320" width="295">  
 
 This repo includes Eagle CAD PCB design files for the board, and Arduino source code for controller firmware and interface library with examples.  The board acts as an I2C slave driven from another microcontroller as I2C master.
 
 ## Order PCBs  
 
 You can order this PCB directly from OSH Park.  Click on the following link.  
-  * Bubble Display Controller - http://oshpark.com/shared_projects/VC1AZwbj  
+  * Bubble Display Controller - http://oshpark.com/shared_projects/Lmfa2Fmm 
 
 See Bill of Materials file in repo for parts list.  
 
@@ -29,7 +29,7 @@ See Bill of Materials file in repo for parts list.
 Design files are in "CadSoft EAGLE PCB Design Software" .brd and .sch formats.  
 A free version of the software can be downloaded from www.cadsoftusa.com.  
 
-<img src="https://raw.github.com/uChip/BubbleDisplay/master/BubbleDisplay_sch.PNG" alt="schematic" height="401" width="597">  
+<img src="https://raw.github.com/uChip/BubbleDisplay/master/BubbleDisplay_sch.PNG" alt="schematic" height="408" width="604">  
 schematic  
 
 <img src="https://raw.github.com/uChip/BubbleDisplay/master/BubbleDisplay_brd.PNG" alt="PCB" height="405" width="375">  

@@ -17,7 +17,7 @@
 
     HISTORY
 
-    2014-Apr-16  - First release, C. Schnarel
+    2014-Apr-20  - First release, C. Schnarel
 */
 /**************************************************************************/
 
@@ -34,12 +34,22 @@
 #define DIGIT_2  A2
 #define DIGIT_3  A1
 #define DIGIT_4  A0
+
+//BOARD 22MAR2014
 // ADC6, ADC7
-#define DIGIT_5  A6
-#define DIGIT_6  A7
+//#define DIGIT_5  A6
+//#define DIGIT_6  A7
 // PB0, PB1
-#define DIGIT_7  8
-#define DIGIT_8  9
+//#define DIGIT_7  8
+//#define DIGIT_8  9
+
+//BOARD 07APR2014
+// ADC6, ADC7
+#define DIGIT_5  8
+#define DIGIT_6  9
+// PB0, PB1
+#define DIGIT_7  10
+#define DIGIT_8  11
 
 // Segments written as an 8-bit register (port D)
 
