@@ -76,6 +76,15 @@ void BubbleDisplay::setCursor(uint8_t position){
     Wire.endTransmission();
 }
 
+/** Sets the LED brightness
+ */
+void BubbleDisplay::setBrightness(uint8_t howBright){
+    Wire.beginTransmission(devAddr);
+    Wire.write(LED_SETBRIGHTNESS);
+    Wire.write(howBright);
+    Wire.endTransmission();
+}
+
 /** Disable display
  */
 void BubbleDisplay::noDisplay(){

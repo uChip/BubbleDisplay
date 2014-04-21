@@ -42,6 +42,7 @@ public:
   void clear();  // clears the display buffer and sets the cursor posn to zero
   void home();   // sets the cursor to location 0
   void setCursor(uint8_t);  // sets the cursor location
+  void setBrightness(uint8_t);  // sets the LED brightness 0-250
 
   void noDisplay();  // disable display
   void display();  // enable display

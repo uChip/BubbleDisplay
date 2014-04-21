@@ -32,5 +32,6 @@
 #define LED_SETSCROLL      0x90
 #define LED_CREATECHAR     0xA0
 #define LED_DATA           0xB0
+#define LED_SETBRIGHTNESS  0xC0
 #define LED_RESTART        0xF0
 

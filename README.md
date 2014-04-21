@@ -8,7 +8,7 @@ For a more detailed write-up of the project see BubbleDisplay.pdf in the repo or
 
 Here is a photo of the functional display.  
 
-<img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_front.jpg" alt="v07APR2014" height="320" width="295">  
+<img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_front.jpg" alt="v07APR2014" height="320" width="292">  
 
 This repo includes Eagle CAD PCB design files for the board, and Arduino source code for controller firmware and interface library with examples.  The board acts as an I2C slave driven from another microcontroller as I2C master.
 
@@ -20,9 +20,8 @@ You can order this PCB directly from OSH Park.  Click on the following link.
 See Bill of Materials file in repo for parts list.  
 
 ## Status  
-  * PCB layout has been completed and submitted to fab at Osh Park.  I expect boards back in 1 to 2 days.
-  * PCB has not been proven.  Circuit has been prototyped and simulated, so confidence is reasonable, but order PCBs at this time at your own risk.
-  * Firmware, library and examples been completed and tested with an earlier prototype.  Waiting to test with the final PCB.
+  * 07APR2014 PCB received built and tested good.
+  * Firmware, library and examples have been completed and tested against the final PCB.
 
 ## File Formats  
 

@@ -55,8 +55,8 @@
 
 // This sets the delay time for frame rate
 // The value is repeated for each of 8 digits on the display so 
-//   frame rate = 1 / (8 * DIGIT_TIME) = 1mS -> 125 Hz
-#define DIGIT_TIME 1
+//   frame rate = 1 / (8 * DIGIT_TIME(uS)) -> 125 Hz
+#define DIGIT_TIME 1000
 
 // Declare global variables
 // Incoming display data is stored in displayBuff at
@@ -75,9 +75,13 @@ uint8_t scroll = 0;
 // The display digit lines (cathodes) are only pulsed
 // when the enable variable holds a value of true
 boolean enable = true;
+// DIGIT_TIME is divided into on and off ratio to set brightness.
+// brightness is a variable that tells how long to turn on the segments.
+// Valid values for brightness are 4 - DIMMEST to 999 - FULL BRIGHT.
+int brightness = 999;
 
 // Default startup data
-char banner[] = { 'S', 'P', 'A', 'R', 'K', 'F', 'U', 'N' };
+char banner[] = { 'A', 'r', 'd', 'u', 'i', 'n', 'o', '!' };
 
 // This is the display buffer.  It is interpreted as ASCII data and
 // holds up to 256 characters (0-255)
@@ -153,45 +157,53 @@ void loop() { // Do this over and over
   if(enable) digitalWrite(DIGIT_1, HIGH);
   
   // wait out the time to show this digit
-  delay(DIGIT_TIME);
+  delayMicroseconds(brightness);
   // always turn the digit off again even if the display is not enabled
   digitalWrite(DIGIT_1, LOW);
+  delayMicroseconds(DIGIT_TIME - brightness);
 
   // Now repeat the same steps for each of the other digits in the display
   PORTD = chargen[displayBuff[scroll + 1]];
   if(enable) digitalWrite(DIGIT_2, HIGH);
-  delay(DIGIT_TIME);
+  delayMicroseconds(brightness);
   digitalWrite(DIGIT_2, LOW);
-
+  delayMicroseconds(DIGIT_TIME - brightness);
+  
   PORTD = chargen[displayBuff[scroll + 2]];
   if(enable) digitalWrite(DIGIT_3, HIGH);
-  delay(DIGIT_TIME);
+  delayMicroseconds(brightness);
   digitalWrite(DIGIT_3, LOW);
+  delayMicroseconds(DIGIT_TIME - brightness);
 
   PORTD = chargen[displayBuff[scroll + 3]];
   if(enable) digitalWrite(DIGIT_4, HIGH);
-  delay(DIGIT_TIME);
+  delayMicroseconds(brightness);
   digitalWrite(DIGIT_4, LOW);
+  delayMicroseconds(DIGIT_TIME - brightness);
 
   PORTD = chargen[displayBuff[scroll + 4]];
   if(enable) digitalWrite(DIGIT_5, HIGH);
-  delay(DIGIT_TIME);
+  delayMicroseconds(brightness);
   digitalWrite(DIGIT_5, LOW);
+  delayMicroseconds(DIGIT_TIME - brightness);
 
   PORTD = chargen[displayBuff[scroll + 5]];
   if(enable) digitalWrite(DIGIT_6, HIGH);
-  delay(DIGIT_TIME);
+  delayMicroseconds(brightness);
   digitalWrite(DIGIT_6, LOW);
+  delayMicroseconds(DIGIT_TIME - brightness);
 
   PORTD = chargen[displayBuff[scroll + 6]];
   if(enable) digitalWrite(DIGIT_7, HIGH);
-  delay(DIGIT_TIME);
+  delayMicroseconds(brightness);
   digitalWrite(DIGIT_7, LOW);
+  delayMicroseconds(DIGIT_TIME - brightness);
 
   PORTD = chargen[displayBuff[scroll + 7]];
   if(enable) digitalWrite(DIGIT_8, HIGH);
-  delay(DIGIT_TIME);
+  delayMicroseconds(brightness);
   digitalWrite(DIGIT_8, LOW);
+  delayMicroseconds(DIGIT_TIME - brightness);
 }  // End of loop().  Finished with multiplexing the display one time
 
 // This function executes whenever data is received from I2C bus
@@ -268,6 +280,14 @@ void receiveEvent(int howMany)
     // If more data is provided than the buffer will hold, the cursor
     // automatically wraps back to the beginning.
     displayBuff[cursor++] = rcvArray[1] & 0x7F;
+    break;
+  case LED_SETBRIGHTNESS:
+    brightness = rcvArray[1] << 2;
+    if(brightness > 999) brightness = 999;
+    // Arduino docs hint that delayMicroseconds() does not like values
+    // less than 4.  I see flashes if I let brightness go to zero so
+    // keep it 4 or above.
+    else if(brightness < 4) brightness = 4;
     break;
   case LED_RESTART:
     // Resets the display controller.

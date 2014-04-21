@@ -17,6 +17,7 @@ testConnection	KEYWORD2
 clear 	KEYWORD2
 home 	KEYWORD2
 setCursor	KEYWORD2
+setBrightness	KEYWORD2
 noDisplay	KEYWORD2
 display	KEYWORD2
 scrollDisplayLeft	KEYWORD2
