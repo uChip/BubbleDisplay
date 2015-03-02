@@ -1,6 +1,6 @@
 # hp Bubble Display Controller  
 
-<img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_front.png" alt="Bubble Display Controller front side" height="250" width="231">___<img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_back.png" alt="Bubble Display Controller back side" height="250" width="231">  
+<img src="https://github.com/uChip/BubbleDisplay/blob/master/board_front.png" alt="Bubble Display Controller front side" height="250" width="231">___<img src="https://github.com/uChip/BubbleDisplay/blob/master/board_back.png" alt="Bubble Display Controller back side" height="250" width="231">  
 
 This is a board and firmware project supporting hp's 4 digit 7 segment LED bubble display, QDSP-6064, available from [SparkFun](https://www.sparkfun.com/products/12710).  The project is intended to enable a pair of displays to be easily connected over a two-wire I2C bus to a microcontroller (e.g. Arduino).  The board is also an example circuit of how to get reasonable brightness from these small displays.  By having a separate microcontroller driving the display, the burden (I/O pins, code space & CPU cycles) on the main application microcontroller is reduced.
 
@@ -8,7 +8,7 @@ For a more detailed write-up of the project see "Forum Postings.pdf" in the repo
 
 Here is a photo of the functional display.  
 
-<img src="https://raw2.github.com/uChip/BubbleDisplay/master/board_front.jpg" alt="v07APR2014" height="320" width="292">  
+<img src="https://github.com/uChip/BubbleDisplay/blob/master/board_front.jpg" alt="v07APR2014" height="320" width="292">  
 
 This repo includes Eagle CAD PCB design files for the board, and Arduino source code for controller firmware and interface library with examples.  The board acts as an I2C slave driven from another microcontroller as I2C master.
 
